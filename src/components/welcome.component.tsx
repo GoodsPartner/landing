@@ -1,5 +1,5 @@
 import {Button} from "@/components/common/button.component.tsx";
-import backgroundImage from '@/assets/welcome_bg.png';
+import backgroundImage from '@/assets/img/welcome_bg.png';
 
 export const Welcome = () => {
     return <section className={'px-28 h-[1000px] -mt-[120px]'} style={{
