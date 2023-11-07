@@ -3,6 +3,8 @@ import {Benefits} from "@/components/benefits.component.tsx";
 import {Header} from "@/components/header.component.tsx";
 import {Users} from "@/components/users.component.tsx";
 import {Approach} from "@/components/approach.component.tsx";
+import {Statistics} from "@/components/statistics.component.tsx";
+import {Footer} from "@/components/footer.component.tsx";
 
 function App() {
     return (
@@ -11,7 +13,9 @@ function App() {
             <Welcome/>
             <Benefits/>
             <Users/>
+            <Statistics/>
             <Approach/>
+            <Footer/>
         </>
     )
 }
