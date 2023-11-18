@@ -4,25 +4,19 @@ import {Button} from "@/components/common/button.component.tsx";
 
 export const Users = () => {
     return (
-        <section className={'h-[720px] flex items-center px-28'} style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundSize: '50%',
-            backgroundRepeat: 'no-repeat',
-            backgroundPositionX: 'left',
-            backgroundPositionY: 'top',
-        }}>
-            <div className={'ml-[50%]'}>
+        <section className={'xl:h-[720px]  flex max-md:justify-between max-lg:flex-col-reverse max-lg:gap-4'}>
+            <img  src={backgroundImage} alt="" className={'md:-ml-[100px] object-contain w-full'}/>
+            <div className={'px-28 max-lg:px-6 md:flex-1 md:self-center'}>
                 <SubTitle uppercase={true}>Кому Це Підходить</SubTitle>
-                <p className={"text-xl mt-10  text-black-primary"}>
+                <p className={"text-xl mt-10 max-md:mt-4 max-md:text-sm text-black-primary"}>
                     Наш продукт розрахований на власників підприємств та менеджерів логістики,
                     які прагнуть зекономити час і гроші завдяки оптимізації маршрутів,
                     та підвищити ефективність бізнесу.
                 </p>
-                <div className={'mt-14'}>
-                    <Button>Дізнатись більше</Button>
+                <div className={'mt-14 max-md:mt-8'}>
+                    <Button classes={'max-md:w-full'}>Дізнатись більше</Button>
                 </div>
             </div>
-
         </section>
     );
 }

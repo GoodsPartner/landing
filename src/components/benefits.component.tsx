@@ -2,6 +2,8 @@ import {SubTitle} from "@/components/common/sub-title.component.tsx";
 import {app, calc, erp, settings, transparent} from "@/assets/img/benefits/index.tsx";
 import {FC} from "react";
 
+import arrow from '@/assets/img/arrow.svg';
+
 export const Benefits = () => {
     const benefits: BenefitItemProps[] = [
         {
@@ -29,17 +31,17 @@ export const Benefits = () => {
     ]
 
     return (
-        <section className={'px-28 pb-40'}>
+        <section className={'lg:px-28 px-10 pb-40 mx-auto max-md:pb-20'}>
             <div className={'text-center'}>
                 <SubTitle>Зручність, Надійність та Ефективність</SubTitle>
-                <p className={"text-xl mt-10  text-black-primary"}>
+                <p className={"text-xl mt-10  max-sm:text-sm max-sm:mt-4 text-black-primary"}>
                     Goods Partner - це інноваційний інструмент для оптимізації логістики. З нашим продуктом ви зможете
                     швидко розраховувати оптимальні маршрути, <br/>
                     враховувати всі потреби вашого бізнесу та ефективно виконувати доставки.
                 </p>
             </div>
 
-            <div className={'grid grid-cols-3 mt-20 flex-wrap gap-6'}>
+            <div className={'grid 2xl:grid-cols-3 lg:grid-cols-2 grid-cols-1  mt-20  gap-6'}>
                 {benefits.map((item, index) => <BenefitItem key={'benefit-' + index} {...item}/>)}
                 <GetPresensation/>
             </div>
@@ -54,23 +56,19 @@ interface BenefitItemProps {
 }
 
 const BenefitItem:FC<BenefitItemProps> = ({title, description, icon}) => (
-    <div className={'rounded-xl h-[224px] pt-10 px-10 border-[1px] border-[gray-secondary]'}>
+    <div className={'rounded-xl h-[224px] p-10 border-[1px] border-[gray-secondary] max-sm:p-4 max-sm:h-[154px]'}>
         <div className={'flex justify-between'}>
-            <h3 className={'font-bold text-xl uppercase text-black-primary'}>{title}</h3>
-            <img src={icon} alt={title}/>
+            <h3 className={'font-bold text-xl max-sm:text-sm uppercase text-black-primary mr-2'}>{title}</h3>
+            <img className={'block max-sm:w-10 max-sm:h-10 h-[64px] w-[64px]'} src={icon} alt={title}/>
         </div>
-        <p className={'mt-2 text-black-primary  max-w-[400px]'}>{description}</p>
+        <p className={'mt-2 text-black-primary max-sm:text-xs max-w-[400px]'}>{description}</p>
     </div>
 )
 
 const GetPresensation:FC = () => (
-    <div className={'rounded-xl cursor-pointer flex justify-center items-center h-[224px] bg-blue-primary'}>
-       <p className={'font-bold text-white text-xl uppercase mr-4'}>Замовити презентацію</p>
-        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0.5" y="0.5" width="37" height="37" rx="18.5" fill="white"/>
-            <path d="M14.7143 14H24M24 14V23.2857M24 14L11 27" stroke="#1976D2" stroke-width="4"/>
-            <rect x="0.5" y="0.5" width="37" height="37" rx="18.5" stroke="white"/>
-        </svg>
+    <div className={'rounded-xl cursor-pointer flex justify-center items-center h-[224px] bg-blue-primary max-sm:h-[154px]'}>
+       <p className={'font-bold text-white text-xl uppercase mr-4 max-sm:text-sm'}>Замовити презентацію</p>
+        <img className={'block max-sm:w-6 max-sm:h-6 h-[38px] w-[38px]'} src={arrow} alt=""/>
 
     </div>
 )
