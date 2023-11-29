@@ -4,9 +4,9 @@ export const Footer = () => {
 
         <div>
             <div className={'mb-3 max-md:mb-2'}>
-                <a href={"mailto:sales@goodspartner.io"} target={'_blank'}>sales@goodspartner.io</a>
+                <a href={"mailto:sales@goodspartner.io"}  className={'text-blue-primary'}  target={'_blank'}>sales@goodspartner.io</a>
             </div>
-            <div><a href={"tel:+380935982800"} target={'_blank'}> +380 93 598 28 00</a></div>
+            <div><a href={"tel:+380935982800"}  className={'text-blue-primary'}  target={'_blank'}> +380 93 598 28 00</a></div>
         </div>
     </footer>
 }

@@ -5,6 +5,7 @@ import {Users} from "@/components/users.component.tsx";
 import {Approach} from "@/components/approach.component.tsx";
 import {Statistics} from "@/components/statistics.component.tsx";
 import {Footer} from "@/components/footer.component.tsx";
+import {Contact} from "@/components/contact.component.tsx";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
             <Users/>
             <Statistics/>
             <Approach/>
+            <Contact/>
             <Footer/>
         </>
     )
