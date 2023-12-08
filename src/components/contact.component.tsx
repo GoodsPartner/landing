@@ -73,6 +73,9 @@ const ContactForm = () => {
         fetch('https://arianta.goods-partner.online/api/v1/feedback', {
             method: 'POST',
             body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
     };
 
