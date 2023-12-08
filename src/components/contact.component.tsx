@@ -6,7 +6,7 @@ import {toast} from "react-toastify";
 
 
 const contactSchema = z.object({
-    name: z.string().min(1, "Вкажіть будь ласка ім'я" ),
+    name: z.string().min(1, "Вкажіть будь ласка ім'я"),
     email: z.string().optional(),
     countryCode: z.string().min(1),
     phoneNumber: z.string(),
@@ -61,35 +61,44 @@ const ContactForm = () => {
 
     const onSubmit: SubmitHandler<ContactSchema> = (data) => {
 
+        // @ts-ignore
+        // @ts-ignore
         fetch('https://arianta.goods-partner.online/api/v1/feedback', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(_ => {
-            toast.success('Ваш лист відправлено! Ми зв’яжемося з вами найближчим часом', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-        }).catch(_=> {
-            toast.error('Виникла помилка при відправленні форми', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+        }).then(response => {
+            if (!response.ok) {
+                return Promise.reject(response);
+            }
+            return response;
         })
+            .then(_ => {
+                toast.success('Ваш лист відправлено! Ми зв’яжемося з вами найближчим часом', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            })
+            .catch(_ => {
+                toast.error('Виникла помилка при відправленні форми', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            })
     };
 
     // write contant for for name, email, phone, message using zod and react-hook-form
@@ -124,7 +133,7 @@ const ContactForm = () => {
                            className={'max-w-[80px] rounded-sm placeholder:text-xs placeholder:text-[#999999] ' +
                                'py-3 px-4 text-gray-700 text-sm border-[1px] border-[#D3D3D3]'} value={'+38'}/>
 
-                    <input type="text"  placeholder={'(000) 000 00 00 *'}
+                    <input type="text" placeholder={'(000) 000 00 00 *'}
                            {...register("phoneNumber")}
                            className={'block min-w-[100px] flex-1 w-fit rounded-sm placeholder:text-xs placeholder:text-[#999999] ' +
                                'py-3 px-4 text-gray-700 text-sm border-[1px] border-[#D3D3D3]'}/>
