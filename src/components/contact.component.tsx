@@ -60,22 +60,35 @@ const ContactForm = () => {
     });
 
     const onSubmit: SubmitHandler<ContactSchema> = (data) => {
-        toast.success('Ваш лист відправлено! Ми зв’яжемося з вами найближчим часом', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+
         fetch('https://arianta.goods-partner.online/api/v1/feedback', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
                 'Content-Type': 'application/json'
             }
+        }).then(_ => {
+            toast.success('Ваш лист відправлено! Ми зв’яжемося з вами найближчим часом', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }).catch(_=> {
+            toast.error('Виникла помилка при відправленні форми', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         })
     };
 
