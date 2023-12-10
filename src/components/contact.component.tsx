@@ -63,7 +63,7 @@ const ContactForm = () => {
 
         // @ts-ignore
         // @ts-ignore
-        fetch('https://arianta.goods-partner.online/api/v1/feedback', {
+        fetch('https://goods-partner.online/api/v1/feedback', {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
